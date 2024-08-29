@@ -13,7 +13,9 @@ const JWT_SECRET = 'your_jwt_secret'; // Replace with a secure key
 
 const multer = require('multer')
 const AWS = require('aws-sdk');
-
+//mail
+const nodemailer = require('nodemailer');
+const crypto = require('crypto')
 
 // Middleware
 app.use(bodyParser.json());
@@ -35,6 +37,17 @@ console.log('AWS_ACCESS_KEY_ID:', process.env.AWS_ACCESS_KEY_ID);
 console.log('AWS_SECRET_ACCESS_KEY:', process.env.AWS_SECRET_ACCESS_KEY);
 console.log('AWS_REGION:', process.env.AWS_REGION);
 
+//nodemailer with gmail
+const transporter = nodemailer.createTransport({
+    service:'gmail',
+    auth:{
+        user:process.env.GMAIL_USER,
+        pass:process.env.GMAIL_PASS
+    }
+});
+console.log(`GMAIL user ${process.env.GMAIL_USER}`);
+console.log(`Gmail pass ${process.env.GMAIL_PASS}`)
+
 
 
 // MongoDB Connection
@@ -47,7 +60,9 @@ mongoose.connect(mongoURI, { useNewUrlParser: true, useUnifiedTopology: true })
 const User = mongoose.model('User', new mongoose.Schema({
     username: { type: String, required: true },
     email: { type: String, required: true, unique: true },
-    password: { type: String, required: true }
+    password: { type: String, required: true },
+    otp:{type:String},
+    isVerified:{type:Boolean,default:false}
 }));
 
 
@@ -58,18 +73,66 @@ app.post('/api/signup', async (req, res) => {
 
         // Hash the password
         const hashedPassword = await bcrypt.hash(password, 10);
+        //gnerate 6 digit otp
+        const otp = crypto.randomInt(100000, 999999).toString();
+        console.log('Generated OTP:',otp);
+ 
 
         const user = new User({
             username,
             email,
-            password: hashedPassword
+            password: hashedPassword,
+            otp, //Store otp In database
+            isVerified:false //initially set to false
         });
 
         await user.save();
-        res.status(201).send(user);
+       // Send OTP to user's email
+       const mailOptions = {
+        from: process.env.GMAIL_USER,
+        to: email,
+        subject: 'Your OTP for Verification',
+        text: `Your OTP for verification is: ${otp}`
+    };
+
+    transporter.sendMail(mailOptions, (error, info) => {
+        if (error) {
+            console.error('Error sending email:', error);
+            return res.status(500).send({ error: 'Error sending OTP email' });
+        }
+        res.status(201).send({ message: 'Signup successful! Please check your email for the OTP.' ,otp});
+    });
     } catch (error) {
         console.error('Error saving user:', error);
         res.status(400).send({ error: 'Error saving user', details: error.message });
+    }
+});
+
+//otp verifcation Route
+app.post('/api/verify-otp', async (req, res) => {
+    try {
+        const { email, otp } = req.body;
+
+        // Find the user by email
+        const user = await User.findOne({ email });
+        if (!user) {
+            return res.status(404).send({ error: 'User not found' });
+        }
+
+        // Check if the OTP matches
+        if (user.otp !== otp) {
+            return res.status(400).send({ error: 'Invalid OTP' });
+        }
+
+        // Mark the user as verified and clear the OTP
+        user.isVerified = true;
+        user.otp = null;
+        await user.save();
+
+        res.send({ message: 'Email verified successfully! You can now log in.' });
+    } catch (error) {
+        console.error('Error during OTP verification:', error);
+        res.status(500).send({ error: 'Error during OTP verification', details: error.message });
     }
 });
 

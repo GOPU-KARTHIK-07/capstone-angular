@@ -1,4 +1,4 @@
-<!-- signup.component.html -->
+<!-- 
 <div class="signup-container">
     <h2>Signup</h2>
     <form (ngSubmit)="onSubmit()" #signupForm="ngForm">
@@ -18,5 +18,32 @@
   
       <button type="submit" [disabled]="!signupForm.valid">Signup</button>
     </form>
-  </div>
+  </div> -->
   
+<div class="signup-container">
+  <h2>Signup</h2>
+  <form (ngSubmit)="onSignup()" #signupForm="ngForm">
+    <div class="form-group">
+      <label for="username">Username:</label>
+      <input type="text" id="username" name="username" [(ngModel)]="user.username" required>
+    </div>
+    <div class="form-group">
+      <label for="email">Email:</label>
+      <input type="email" id="email" name="email" [(ngModel)]="user.email" required>
+    </div>
+    <div class="form-group">
+      <label for="password">Password:</label>
+      <input type="password" id="password" name="password" [(ngModel)]="user.password" required>
+    </div>
+    <button type="submit" [disabled]="!signupForm.valid">Get OTP</button>
+  </form>
+
+  <!-- OTP Verification Form -->
+ <form *ngIf="isOtpSent" (ngSubmit)="onVerifyOtp()" #otpForm="ngForm">
+    <div class="form-group">
+      <label for="otp">Enter OTP:</label>
+      <input type="text" id="otp" name="otp" [(ngModel)]="otp" required [disabled]="!isOtpEnabled">
+    </div>
+    <button type="submit" [disabled]="!otpForm.valid || !isOtpEnabled">Verify OTP</button>
+  </form>
+</div>
