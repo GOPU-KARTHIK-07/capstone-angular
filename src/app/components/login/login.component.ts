@@ -1,9 +1,9 @@
 import { Component } from '@angular/core';
 import { HttpClient, HttpClientModule } from '@angular/common/http';
-import { FormsModule } from '@angular/forms';
-import { CommonModule } from '@angular/common';
 import { Router } from '@angular/router';
-import { AuthService } from '../../auth.service'; // Import AuthService
+import { AuthService } from '../../auth.service';
+import { CommonModule } from '@angular/common';
+import { FormsModule } from '@angular/forms';
 
 interface LoginResponse {
   token: string;
@@ -17,34 +17,51 @@ interface LoginResponse {
   styleUrls: ['./login.component.css']
 })
 export class LoginComponent {
-
-  user = {
-    email: '',
-    password: ''
-  };
+  email: string = '';
+  password: string = '';
+  user = { email: '', password: '' };
+  message: string | null = null;
+  messageType: 'success' | 'error' | null = null;
+  fadeOut = false;
 
   constructor(private http: HttpClient, private router: Router, private authService: AuthService) {}
 
-  onSubmit() {
-    this.http.post<LoginResponse>('http://localhost:3000/api/login', this.user)
-      .subscribe(
-        response => {
-          alert('Login successful');
-          localStorage.setItem('authToken', response.token);
-          this.authService.login(); // Set the login state in AuthService
-          this.router.navigate(['/home']); // Redirect to home page
-        },
-        error => {
-          if (error.error === 'Invalid email or password') {
-            alert('The email or password is incorrect.');
-          } else if (error.error === 'Invalid password') {
-            alert('The password is incorrect.');
-          } else {
-            alert('An error occurred while logging in.');
-          }
-        }
-      );
+ // In LoginComponent
+onSubmit() {
+  this.http.post<LoginResponse>('http://localhost:3000/api/login', this.user)
+    .subscribe(
+      response => {
+        console.log('Storing email:', this.user.email); // Debug line
+        localStorage.setItem('email', this.user.email); // Store email
+        localStorage.setItem('authToken', response.token); // Store token
+        this.authService.login(this.email, response.token);
 
-      
+        setTimeout(() => {
+          this.router.navigate(['/home']);
+        }, 3000);
+      },
+      error => {
+        if (error.error === 'Invalid email or password') {
+          this.showMessage('The email or password is incorrect.', 'error');
+        } else {
+          this.showMessage('An error occurred while logging in.', 'error');
+        }
+      }
+    );
+}
+
+
+  showMessage(message: string, type: 'success' | 'error'): void {
+    this.message = message;
+    this.messageType = type;
+    this.fadeOut = false;
+    setTimeout(() => {
+      this.fadeOut = true;
+    }, 1000);
+    setTimeout(() => {
+      this.message = null;
+      this.messageType = null;
+      this.fadeOut = false;
+    }, 2000);
   }
 }

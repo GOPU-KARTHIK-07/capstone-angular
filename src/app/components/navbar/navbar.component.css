@@ -2,9 +2,23 @@
     display: flex;
     justify-content: space-between;
     align-items: center;
-    padding: 10px 20px;
-    background-color: #333;
+    padding: 10px 10px;
+    background-color:#0a0a0a;
     color: white;
+    box-sizing: border-box;
+    height: 70px;
+    background-color: black;
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: space-between;
+    padding: 5px;
+    font-family: 'Open Sans', sans-serif;
+    position: sticky;
+    top: 0;
+    right: 0;
+    left: 0;
+    z-index: 1000;
+    
   }
   
   .navbar a {
@@ -28,3 +42,19 @@
     margin-left: 15px;
   }
   
+
+  .navbar-brand {
+    display: flex;
+    align-items: center;
+    color: white;
+    font-size: 1.5rem; /* Adjust the font size as needed */
+  }
+  
+  /* Logo image */
+  .logo {
+     /* Adjust the width as needed */
+    height: auto; /* Maintain aspect ratio */
+    margin-right: 10px; /* Space between logo and text */
+    width: 200px;
+    display: inline-block;
+  }

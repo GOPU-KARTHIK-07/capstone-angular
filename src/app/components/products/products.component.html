@@ -1,15 +1,24 @@
 <div class="product-container">
-    <div *ngFor="let product of products" class="product-card">
-      <div *ngIf="!product.editing">
-        <div *ngIf="product.imageUrl">
-          <img [src]="product.imageUrl" alt="{{product.name}}" class="product-image">
-        </div>
-        <h3>{{ product.name }}</h3>
-        <p>Price: ${{ product.price }}</p>
-        <p>Description: {{ product.description }}</p>
-        <p>Category: {{ product.category }}</p>
-        <button (click)="addToCart(product)" class="btn">Add to Cart</button>
+  <div *ngFor="let product of products" class="product-card">
+    <div *ngIf="!product.editing">
+      <div *ngIf="product.imageUrl">
+        <img [src]="product.imageUrl" alt="{{product.name}}" class="product-image">
       </div>
+      <h3>{{ product.name }}</h3>
+      <p>Price: ${{ product.price }}</p>
+      <p>Description: {{ product.description }}</p>
+      <p>Category: {{ product.category }}</p>
+      <button (click)="addToCart(product)" class="btn">Add to Cart</button>
     </div>
   </div>
-  
+</div>
+
+<div *ngIf="alertMessage" 
+     class="alert" 
+     [ngClass]="{
+       'alert-success': alertType === 'success', 
+       'alert-error': alertType === 'error',
+       'fade-out': fadeOut
+     }">
+  {{ alertMessage }}
+</div>

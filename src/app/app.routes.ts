@@ -12,6 +12,8 @@ import { adminguardGuard } from './adminguard.guard';
 import { AdminAddProductComponent } from './components/admin-add-product/admin-add-product.component';
 import { AdminEditProductComponent } from './components/admin-edit-product/admin-edit-product.component';
 import { CartComponent } from './components/cart/cart.component';
+import { CheckoutComponent } from './components/checkout/checkout.component';
+import { MyOrdersComponent } from './my-orders/my-orders/my-orders.component';
 
 export const routes: Routes = [
   { path: '', redirectTo: 'signup', pathMatch: 'full' },
@@ -19,6 +21,8 @@ export const routes: Routes = [
   { path: 'signup', component: SignupComponent },
   { path: 'home', component: HomeComponent, canActivate: [AuthGuard] },
   { path: 'products', component: ProductsComponent, canActivate: [AuthGuard] },
+  { path: 'checkout', component: CheckoutComponent, canActivate: [AuthGuard] },
+  { path: 'myorders', component: MyOrdersComponent, canActivate: [AuthGuard] },
   { path: 'cart', component: CartComponent, canActivate: [AuthGuard] },
   { path: 'aboutus', component: AboutusComponent, canActivate: [AuthGuard] },
   {path: 'admin',component:AdminloginComponent},
