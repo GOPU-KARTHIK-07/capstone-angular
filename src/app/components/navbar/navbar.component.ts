@@ -16,7 +16,11 @@ export class NavbarComponent {
 
   onLogout() {
     if (confirm('Are you sure you want to logout?')) {
-      this.authService.logout(); // Perform logout and redirect to login page
+      this.authService.logout();
+      localStorage.removeItem('cart');
+
+       // Perform logout and redirect to login page
+      
     }
   }
   adminLogout() {

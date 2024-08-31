@@ -1,0 +1,45 @@
+<div class="service-booking">
+    <!-- Image layer -->
+    <img src="assets/images/service.png" alt="Service Background" class="background-image">
+
+    <!-- Form overlay -->
+    <div class="form-overlay">
+        <div class="container">
+            <div class="row align-items-center">
+                <div class="col-md-6 text-white">
+                    <h2>Service Booking</h2>
+                    <p>Make an appointment for Royal Enfield service from the safety and comfort of your home.</p>
+                </div>
+                <div class="col-md-6">
+                    <form (ngSubmit)="onSubmit(serviceForm)" #serviceForm="ngForm" class="form-content">
+                        <div class="form-row">
+                            <div class="form-group col">
+                                <input type="text" class="form-control" id="fullName" placeholder="Full name*" name="fullName" ngModel required>
+                            </div>
+                            <div class="form-group col">
+                                <input type="email" class="form-control" id="email" placeholder="Email address*" name="email" ngModel required>
+                            </div>
+                        </div>
+                        <div class="form-row">
+                            <div class="form-group col">
+                                <input type="text" class="form-control" id="state" placeholder="State*" name="state" ngModel required>
+                            </div>
+                            <div class="form-group col">
+                                <input type="text" class="form-control" id="city" placeholder="City*" name="city" ngModel required>
+                            </div>
+                        </div>
+                        <div class="form-check form-check-inline">
+                            <input class="form-check-input" type="radio" id="selfDrop" name="serviceType" value="Self Drop & Pick-up" ngModel>
+                            <label class="form-check-label" for="selfDrop">Self Drop & Pick-up</label>
+                        </div>
+                        <div class="form-check form-check-inline">
+                            <input class="form-check-input" type="radio" id="doorstepService" name="serviceType" value="Service at Doorstep" ngModel>
+                            <label class="form-check-label" for="doorstepService">Service at Doorstep</label>
+                        </div>
+                        <button type="submit" class="btn btn-primary mt-3">Book Service</button>
+                    </form>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
