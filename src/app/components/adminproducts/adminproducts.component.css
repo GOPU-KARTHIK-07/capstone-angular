@@ -3,7 +3,7 @@
     justify-content: flex-end;
     align-items: center;
     padding: 10px 20px;
-    background-color: #444; /* Slightly different shade to differentiate from main navbar */
+    background-color: #000000; /* Slightly different shade to differentiate from main navbar */
     color: white;
     margin-top: 10px;
 }

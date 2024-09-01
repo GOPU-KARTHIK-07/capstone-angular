@@ -1,0 +1,22 @@
+#products-chart {
+    border: 1px solid #ccc;
+  }
+  
+  #orders-chart {
+    border: 1px solid #ccc;
+  }
+  
+  #products-chart {
+    background: #f4f4f4;
+    border-radius: 8px;
+    box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+  }
+  
+  .bar:hover {
+    opacity: 1;
+  }
+  
+  .x-axis path, .y-axis path {
+    display: none;
+  }
+  

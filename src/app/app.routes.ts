@@ -15,6 +15,7 @@ import { CartComponent } from './components/cart/cart.component';
 import { CheckoutComponent } from './components/checkout/checkout.component';
 import { MyOrdersComponent } from './my-orders/my-orders/my-orders.component';
 import { OurServicesComponent } from './components/our-services/our-services.component';
+import { AdminChartComponent } from './components/admin-chart/admin-chart.component';
 
 
 export const routes: Routes = [
@@ -32,6 +33,7 @@ export const routes: Routes = [
 { path: 'admin/login', component: AdminloginComponent },
   // { path: 'admin/products', component: AdminproductsComponent, canActivate: [adminguardGuard] },
   { path: 'admin/users', component: AdminusersComponent, canActivate: [adminguardGuard] },
+  { path: 'admin/chart', component: AdminChartComponent, canActivate: [adminguardGuard] },
 
   {
     path: 'admin/products',

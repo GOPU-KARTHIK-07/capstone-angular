@@ -1,4 +1,4 @@
-.alert-success {
+/* .alert-success {
     color: green;
   }
   
@@ -14,4 +14,202 @@
   input[type="text"] {
     width: 100%;
   }
-  
+   */
+   /* General styles for the checkout container */
+div {
+  max-width: 800px;
+  margin: 0 auto;
+  padding: 20px;
+  font-family: Arial, sans-serif;
+  background-color: #f8f9fa;
+  border-radius: 8px;
+  box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+}
+
+/* Heading styles */
+h2 {
+  font-size: 24px;
+  margin-bottom: 20px;
+  color: #333;
+  text-align: center;
+}
+
+/* Cart summary styles */
+.cart-summary {
+  margin-bottom: 20px;
+  padding: 15px;
+  background-color: #ffffff;
+  border-radius: 8px;
+  border: 1px solid #ddd;
+}
+
+.cart-summary ul {
+  list-style-type: none;
+  padding: 0;
+  margin: 0;
+}
+
+.cart-summary li {
+  padding: 10px 0;
+  border-bottom: 1px solid #eee;
+  font-size: 16px;
+  color: #555;
+}
+
+.cart-summary li:last-child {
+  border-bottom: none;
+}
+
+.cart-summary h3 {
+  font-size: 20px;
+  color: #333;
+  text-align: right;
+  margin-top: 10px;
+}
+
+/* Checkout details styles */
+.checkout-details {
+  background-color: #ffffff;
+  padding: 20px;
+  border-radius: 8px;
+  border: 1px solid #ddd;
+  margin-bottom: 20px;
+}
+
+.checkout-details label {
+  display: block;
+  margin-bottom: 15px;
+  font-size: 14px;
+  color: #333;
+}
+
+.checkout-details input[type="text"],
+.checkout-details textarea {
+  width: 100%;
+  padding: 10px;
+  margin-top: 5px;
+  border: 1px solid #ddd;
+  border-radius: 4px;
+  font-size: 14px;
+}
+
+.checkout-details textarea {
+  resize: none;
+  height: 100px;
+}
+
+.checkout-details input[type="radio"] {
+  margin-right: 5px;
+}
+
+/* Payment details styles */
+.payment-details {
+  margin-top: 20px;
+  padding: 15px;
+  background-color: #f0f0f0;
+  border-radius: 8px;
+  border: 1px solid #ddd;
+}
+
+.payment-details label {
+  display: block;
+  margin-bottom: 10px;
+  font-size: 14px;
+  color: #333;
+}
+
+.payment-details input[type="text"] {
+  width: calc(100% - 20px);
+  padding: 10px;
+  margin-top: 5px;
+  border: 1px solid #ddd;
+  border-radius: 4px;
+  font-size: 14px;
+}
+
+/* Button styles */
+button {
+  display: block;
+  width: 100%;
+  padding: 15px;
+  background-color: #28a745;
+  color: #ffffff;
+  border: none;
+  border-radius: 4px;
+  font-size: 16px;
+  cursor: pointer;
+  transition: background-color 0.3s ease;
+  margin-top: 20px;
+}
+
+button:hover {
+  background-color: #218838;
+}
+
+/* Empty cart message styles */
+
+/* Alert message styles */
+.alert-success {
+  color: #155724;
+  background-color: #d4edda;
+  border-color: #c3e6cb;
+  padding: 10px;
+  margin-top: 20px;
+  border-radius: 4px;
+  font-size: 14px;
+  text-align: center;
+}
+
+.alert-error {
+  color: #721c24;
+  background-color: #f8d7da;
+  border-color: #f5c6cb;
+  padding: 10px;
+  margin-top: 20px;
+  border-radius: 4px;
+  font-size: 14px;
+  text-align: center;
+}
+/* Payment method styles */
+fieldset {
+  border: none;
+  margin: 0;
+  padding: 0;
+}
+
+legend {
+  font-size: 16px;
+  margin-bottom: 10px;
+  color: #333;
+}
+
+label {
+  display: flex;
+  align-items: center;
+  margin-bottom: 10px;
+  font-size: 14px;
+  color: #333;
+}
+
+label img {
+  margin-right: 10px;
+  width: 24px;
+  height: 24px;
+}
+
+input[type="radio"] {
+  margin-right: 10px;
+}
+
+/* Additional icons beside UPI */
+.payment-icons {
+  display: flex;
+  align-items: center;
+  margin-left: 10px;
+}
+
+.payment-icons img {
+  margin-right: 10px;
+  width: 24px;
+  height: 24px;
+}

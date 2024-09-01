@@ -1,4 +1,4 @@
-<div *ngIf="users.length > 0">
+<!-- <div *ngIf="users.length > 0">
     <h2>Registered Users</h2>
     <table>
       <thead>
@@ -20,4 +20,27 @@
     <p>No registered users found.</p>
   </div>
   
+ -->
+
+
+ <div *ngIf="users.length > 0" class="user-table-container">
+  <h2>Registered Users</h2>
+  <table class="user-table">
+    <thead>
+      <tr>
+        <th>Username</th>
+        <th>Email</th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr *ngFor="let user of users">
+        <td>{{ user.username }}</td>
+        <td>{{ user.email }}</td>
+      </tr>
+    </tbody>
+  </table>
+</div>
+<div *ngIf="users.length === 0" class="no-users-message">
+  <p>No registered users found.</p>
+</div>
 

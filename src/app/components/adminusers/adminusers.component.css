@@ -1,0 +1,56 @@
+/* Container for the user table */
+.user-table-container {
+    max-width: 900px; /* Limit the width for better readability */
+    margin: 20px auto; /* Center the container with spacing */
+    padding: 20px;
+    background-color: #f9f9f9; /* Light background color for contrast */
+    border-radius: 8px; /* Rounded corners */
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1); /* Subtle shadow for depth */
+  }
+  
+  /* Heading styling */
+  .user-table-container h2 {
+    font-size: 1.8rem;
+    margin-bottom: 20px; /* Space below the heading */
+    color: #333; /* Darker color for readability */
+  }
+  
+  /* Table styling */
+  .user-table {
+    width: 100%; /* Full width of the container */
+    border-collapse: collapse; /* Collapse borders for a cleaner look */
+  }
+  
+  .user-table th,
+  .user-table td {
+    padding: 12px 15px; /* Padding for better spacing */
+    text-align: left; /* Align text to the left */
+  }
+  
+  .user-table th {
+    background-color: #007bff; /* Header background color */
+    color: #fff; /* Header text color */
+    font-weight: bold; /* Bold header text */
+    border-bottom: 2px solid #0056b3; /* Bottom border for separation */
+  }
+  
+  .user-table tbody tr:nth-child(even) {
+    background-color: #f2f2f2; /* Alternate row color for readability */
+  }
+  
+  .user-table tbody tr:hover {
+    background-color: #e9ecef; /* Hover effect for rows */
+  }
+  
+  .user-table td {
+    border-bottom: 1px solid #ddd; /* Subtle bottom border for cells */
+  }
+  
+  /* No users message styling */
+  .no-users-message {
+    text-align: center; /* Center the text */
+    color: #666; /* Lighter color for the message */
+    font-size: 1.2rem; /* Larger font size for emphasis */
+    margin-top: 20px; /* Space above the message */
+  }
+  

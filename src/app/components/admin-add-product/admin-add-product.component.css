@@ -1,0 +1,63 @@
+/* Add styles for the form container */
+.container {
+    max-width: 800px; /* Set maximum width for better readability */
+    background-color: #ffffff; /* White background for a clean look */
+    border-radius: 8px; /* Rounded corners for a modern feel */
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1); /* Subtle shadow for depth */
+    padding: 20px; /* Padding for spacing */
+  }
+  
+  /* Add margin-bottom to form groups for spacing */
+  .form-group {
+    margin-bottom: 1rem;
+  }
+  
+  /* Style the form labels for a modern look */
+  .form-label {
+    font-weight: bold;
+    color: #333333; /* Darker color for contrast */
+  }
+  
+  /* Style the form controls */
+  .form-control,
+  .form-select {
+    border-radius: 4px; /* Rounded edges for input fields */
+    border: 1px solid #cccccc; /* Light border for a subtle look */
+    padding: 10px; /* Padding for better UX */
+    font-size: 1rem; /* Consistent font size */
+    margin-top: 5px; /* Space between label and input */
+  }
+  
+  /* Button styling for a professional look */
+  .btn-primary {
+    background-color: #007bff; /* Bootstrap primary color */
+    border-color: #007bff; /* Border matches button color */
+    font-weight: bold; /* Bold text for emphasis */
+    padding: 10px 20px; /* Padding for better clickability */
+    transition: background-color 0.3s ease, border-color 0.3s ease; /* Smooth transitions for hover */
+  }
+  
+  .btn-primary:hover {
+    background-color: #0056b3; /* Darker shade on hover */
+    border-color: #0056b3; /* Match border color on hover */
+  }
+  
+  /* Styling for the message alert */
+  .alert-info {
+    background-color: #d1ecf1; /* Light blue background */
+    color: #0c5460; /* Darker blue text for contrast */
+    border: 1px solid #bee5eb; /* Border for emphasis */
+    border-radius: 4px; /* Rounded corners */
+  }
+  
+  /* Responsive adjustments */
+  @media (max-width: 768px) {
+    .container {
+      padding: 15px; /* Less padding on smaller screens */
+    }
+  
+    .btn-primary {
+      width: 100%; /* Full width button on small screens */
+    }
+  }
+  

@@ -1,4 +1,4 @@
-<div *ngIf="errorMessage" class="error">{{ errorMessage }}</div>
+<!-- <div *ngIf="errorMessage" class="error">{{ errorMessage }}</div>
 <div *ngIf="orders.length === 0 && !errorMessage">No orders found.</div>
 
 <div *ngFor="let order of orders">
@@ -15,4 +15,29 @@
       <p>Price: {{ item.productId.price | currency }}</p>
     </div>
   </div>
+</div> -->
+<div *ngIf="errorMessage" class="error-message">{{ errorMessage }}</div>
+<div *ngIf="orders.length === 0 && !errorMessage" class="no-orders">No orders found.</div>
+
+<div *ngFor="let order of orders" class="order-card">
+  <div class="order-summary">
+    <p class="total-amount">Total Amount: {{ order.totalAmount | currency }}</p>
+    <p class="address">Address: {{ order.address }}</p>
+    <p class="payment-method">Payment Method: {{ order.paymentMethod }}</p>
+  </div>
+
+  <div *ngFor="let item of order.cartProducts" class="item-card">
+    <div *ngIf="item.productId" class="item-content">
+      <img [src]="item.productId.imageUrl" alt="{{ item.productId.name }}" class="product-image"/>
+      <div class="item-info">
+        <h3 class="product-name">{{ item.productId.name }}</h3>
+        <p class="product-description">{{ item.productId.description }}</p>
+        <p class="product-rating">Rating: {{ item.productId.rating }} / 5</p>
+        <p class="quantity">Quantity: {{ item.quantity }}</p>
+        <p class="price">Price: {{ item.productId.price | currency }}</p>
+      </div>
+    </div>
+  </div>
 </div>
+
+

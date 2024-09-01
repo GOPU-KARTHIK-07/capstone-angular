@@ -1,4 +1,4 @@
-<div class="container">
+<!-- <div class="container">
   <h2>Add Product</h2>
   <form (ngSubmit)="onSubmit()" #productForm="ngForm" enctype="multipart/form-data">
     <div class="form-group">
@@ -63,6 +63,87 @@
     </div>
 
     <button type="submit" class="btn btn-primary">Add Product</button>
+
+    <div *ngIf="message" class="mt-3 alert alert-info">
+      {{ message }}
+    </div>
+  </form>
+</div> -->
+
+
+
+<div class="container my-5 p-4 border rounded shadow-sm">
+  <h2 class="mb-4">Add Product</h2>
+  <form (ngSubmit)="onSubmit()" #productForm="ngForm" enctype="multipart/form-data">
+    <div class="form-group mb-3">
+      <label for="name" class="form-label">Product Name:</label>
+      <input
+        id="name"
+        name="name"
+        type="text"
+        class="form-control"
+        [(ngModel)]="product.name"
+        required
+      />
+    </div>
+
+    <div class="form-group mb-3">
+      <label for="price" class="form-label">Price:</label>
+      <input
+        id="price"
+        name="price"
+        type="number"
+        class="form-control"
+        [(ngModel)]="product.price"
+        required
+      />
+    </div>
+
+    <div class="form-group mb-3">
+      <label for="description" class="form-label">Description:</label>
+      <textarea
+        id="description"
+        name="description"
+        class="form-control"
+        rows="4"
+        [(ngModel)]="product.description"
+        required
+      ></textarea>
+    </div>
+
+    <div class="form-group mb-3">
+      <label for="category" class="form-label">Category:</label>
+      <select
+        id="category"
+        name="category"
+        class="form-select"
+        [(ngModel)]="product.category"
+        required
+      >
+        <option value="" disabled>Select a category</option>
+        <option value="interceptor">Interceptor</option>
+        <option value="classic">Classic</option>
+        <option value="himalayan">Himalayan</option>
+        <option value="Meteor">Meteor</option>
+        <option value="Continental">Continental</option>
+        <option value="Hunter">Hunter</option>
+        <option value="ThunderBird">ThunderBird</option>
+        <option value="Accessories">Accessories</option>
+      </select>
+    </div>
+
+    <div class="form-group mb-4">
+      <label for="image" class="form-label">Product Image:</label>
+      <input
+        id="image"
+        name="image"
+        type="file"
+        class="form-control"
+        (change)="onFileSelected($event)"
+      />
+    </div>
+
+    <button type="submit" class="btn btn-primary w-100">Add Product</button>
 
     <div *ngIf="message" class="mt-3 alert alert-info">
       {{ message }}

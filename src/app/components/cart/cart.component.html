@@ -10,7 +10,7 @@
       <div class="item-info">
         <h4>{{ product.name }}</h4>
         <p>{{ product.description }}</p>
-        <p>Price: ${{ product.price.toFixed(2) }}</p>
+        <p>Price: : &#8377;{{ product.price.toFixed(2) }}</p>
         <p>Quantity: 
           <span class="quantity-controls">
             <button (click)="decreaseQuantity(product)">-</button>
@@ -32,7 +32,7 @@
   <div class="checkout-summary">
     <h3>Summary</h3>
     <p>Total Quantity: {{ totalQuantity }}</p>
-    <p>Total Amount: ${{ totalAmount.toFixed(2) }}</p>
+    <p>Total Amount: : &#8377;{{ totalAmount.toFixed(2) }}</p>
     <button (click)="checkout()">Checkout</button>
   </div>
 </div>

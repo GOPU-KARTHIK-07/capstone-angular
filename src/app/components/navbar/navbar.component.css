@@ -58,3 +58,7 @@
     width: 200px;
     display: inline-block;
   }
+  .sub-navbar {
+    margin-top: 0; /* Remove any top margin */
+    padding-top: 0; /* Remove any top padding */
+}

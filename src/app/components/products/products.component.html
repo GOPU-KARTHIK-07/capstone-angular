@@ -1,4 +1,4 @@
-<div class="product-container">
+<!-- <div class="product-container">
   <div *ngFor="let product of products" class="product-card">
     <div *ngIf="!product.editing">
       <div *ngIf="product.imageUrl">
@@ -9,6 +9,30 @@
       <p>Description: {{ product.description }}</p>
       <p>Category: {{ product.category }}</p>
       <button (click)="addToCart(product)" class="btn">Add to Cart</button>
+    </div>
+  </div>
+</div>
+
+<div *ngIf="alertMessage" 
+     class="alert" 
+     [ngClass]="{
+       'alert-success': alertType === 'success', 
+       'alert-error': alertType === 'error',
+       'fade-out': fadeOut
+     }">
+  {{ alertMessage }}
+</div> -->
+<div class="product-container">
+  <div *ngFor="let product of products" class="product-card">
+    <div *ngIf="!product.editing">
+      <div *ngIf="product.imageUrl" class="product-image-container">
+        <img [src]="product.imageUrl" alt="{{product.name}}" class="product-image">
+      </div>
+      <h3 class="product-title">{{ product.name }}</h3>
+      <p class="product-price">Price:: &#8377;{{ product.price }}</p>
+      <p class="product-description">{{ product.description }}</p>
+      <p class="product-category">Category: {{ product.category }}</p>
+      <button (click)="addToCart(product)" class="btn add-to-cart-btn">Add to Cart</button>
     </div>
   </div>
 </div>

@@ -231,7 +231,7 @@ const Product = mongoose.model(
     category: {
       type: String,
       required: true,
-      enum: ["laptop", "mobile", "electronics"], // Predefined categories
+      enum: ["interceptor", "classic", "himalayan","Meteor","Continental","Hunter","ThunderBird","Accessories"], // Predefined categories
     },
     imageUrl: { type: String },
     createdAt: { type: Date, default: Date.now },
@@ -245,7 +245,7 @@ app.post("/api/products", upload.single("image"), async (req, res) => {
     const file = req.file;
 
     // Check if the category is valid
-    if (!["laptop", "mobile", "electronics"].includes(category)) {
+    if (!["interceptor", "classic", "himalayan","Meteor","Continental","Hunter","ThunderBird","Accessories"].includes(category)) {
       return res.status(400).send({ error: "Invalid category" });
     }
     let imageUrl = "";

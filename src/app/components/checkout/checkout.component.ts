@@ -2,13 +2,26 @@ import { Component, OnInit } from '@angular/core';
 import { HttpClient, HttpClientModule } from '@angular/common/http';
 import { CommonModule } from '@angular/common';
 import { FormsModule } from '@angular/forms';
+import { Badge, BadgeModule } from 'primeng/badge';
+import { AvatarModule } from 'primeng/avatar';
+import { InputTextModule } from 'primeng/inputtext';
+import { RippleModule } from 'primeng/ripple';
+import { CardModule } from 'primeng/card';
+import { ToastModule } from 'primeng/toast';
+import { MessageService } from 'primeng/api';
+import confetti from 'canvas-confetti';
+
 
 @Component({
   selector: 'app-checkout',
   standalone: true,
-  imports: [CommonModule, HttpClientModule, FormsModule],
+  imports: [CommonModule, HttpClientModule, FormsModule,CommonModule,
+    BadgeModule,AvatarModule,InputTextModule,RippleModule,CardModule,
+    ToastModule,
+  ],
   templateUrl: './checkout.component.html',
-  styleUrls: ['./checkout.component.css']
+  styleUrls: ['./checkout.component.css'],
+  providers:[MessageService]
 })
 export class CheckoutComponent implements OnInit {
   cartProducts: any[] = [];
@@ -82,6 +95,8 @@ export class CheckoutComponent implements OnInit {
         response => {
           console.log('Order placed successfully:', response);
           this.showAlert('Order placed successfully!', 'success');
+          //confetti
+          this.launchConfetti();
         },
         error => {
           console.error('Error placing order:', error);
@@ -89,6 +104,13 @@ export class CheckoutComponent implements OnInit {
           this.showAlert('Error placing order. Please try again.', 'error');
         }
       );
+  }
+  launchConfetti(): void {
+    confetti({
+      particleCount: 100,
+      spread: 70,
+      origin: { x: 0.5, y: 0.5 } // Center the confetti burst
+    });
   }
 
   showAlert(message: string, type: 'success' | 'error'): void {
