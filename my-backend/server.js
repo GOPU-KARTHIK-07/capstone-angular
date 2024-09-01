@@ -555,6 +555,9 @@ app.post("/api/service-booking", async (req, res) => {
       html: `
         <p>Dear User,</p>
         <p>Thank you for booking our service.</p>
+        <p> we will be reaching you out regading the service </p>
+        <p>You have Booked . No other Charges and Dealers </p>
+        <p>Dont Worry your Bike is Safe In our hands</p>
         <p>Best regards,<br>Your Service Team</p>
     `,
     attachments: [
