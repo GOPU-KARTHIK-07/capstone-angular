@@ -9,7 +9,7 @@ export class adminguardGuard implements CanActivate {
 
   constructor(private authService: AuthService, private router: Router) {}
 
-  canActivate(): boolean {
+  canActivate(route: unknown, state: unknown): boolean {
     if (this.authService.isAdminLoggedIn()) {
       return true;
     } else {
