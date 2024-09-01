@@ -28,9 +28,14 @@
         <input [(ngModel)]="product.price" type="number" />
         <textarea [(ngModel)]="product.description"></textarea>
         <select [(ngModel)]="product.category">
-          <option value="laptop">Laptop</option>
-          <option value="mobile">Mobile</option>
-          <option value="electronics">Electronics</option>
+          <option value="interceptor">Interceptor</option>
+          <option value="classic">Classic</option>
+          <option value="himalayan">Himalayan</option>
+          <option value="Meteor">Meteor</option>
+          <option value="Continental">Continental</option>
+          <option value="Hunter">Hunter</option>
+          <option value="ThunderBird">ThunderBird</option>
+          <option value="Accessories">Accessories</option>
         </select>
         <button (click)="saveProduct(product)" class="btn">Save</button>
         <button (click)="cancelEdit(product)" class="btn">Cancel</button>

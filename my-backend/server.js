@@ -298,7 +298,7 @@ app.put("/api/products/:id", async (req, res) => {
     const { name, price, description, category } = req.body;
 
     // Check if the category is valid
-    if (!["laptop", "mobile", "electronics"].includes(category)) {
+    if (!["interceptor", "classic", "himalayan","Meteor","Continental","Hunter","ThunderBird","Accessories"].includes(category)) {
       return res.status(400).send({ error: "Invalid category" });
     }
 
