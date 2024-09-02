@@ -21,7 +21,7 @@
 
 <div *ngFor="let order of orders" class="order-card">
   <div class="order-summary">
-    <p class="total-amount">Total Amount: {{ order.totalAmount | currency }}</p>
+    <p class="total-amount">Total Amount: {{ order.totalAmount | currency :'INR':'symbol'}}</p>
     <p class="address">Address: {{ order.address }}</p>
     <p class="payment-method">Payment Method: {{ order.paymentMethod }}</p>
   </div>
